@@ -1,0 +1,7 @@
+Hello!
+A closure is a combination of a function and a set 
+references to variables in the scope of the function. 
+The latter is sometimes called a reference environment. 
+Closure allows you to perform a function outside
+the scope. In Python, the reference environment is stored
+as a set of cells.  а может быть и  не так
