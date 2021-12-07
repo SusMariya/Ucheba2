@@ -94,3 +94,5 @@ import time
 # print("Hello")
 
 print("вроде получилось создать")
+
+print("Опять получилось)")
