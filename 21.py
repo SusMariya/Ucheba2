@@ -91,4 +91,6 @@ import time
 #                 print(j, "-file",os.path.getsize(rot+"\\"+j), "byte")
 # print_tree("Work")
 
-print("Hello")
+# print("Hello")
+
+print("вроде получилось создать")
