@@ -705,34 +705,39 @@
 #
 
 
-class Ploshad:
-    count = 0
-    @staticmethod
-    def S_Geron(a, b, c):
-        Ploshad.count +=1
-        perimetr = (a+b+c)/2
-        return (perimetr*(perimetr-a) * (perimetr-b) * (perimetr-c))**0.5
+# class Ploshad:
+#     count = 0
+#     @staticmethod
+#     def S_Geron(a, b, c):
+#         Ploshad.count +=1
+#         perimetr = (a+b+c)/2
+#         return (perimetr*(perimetr-a) * (perimetr-b) * (perimetr-c))**0.5
+#
+#     @staticmethod
+#     def s_Treyg(a, h):
+#         Ploshad.count += 1
+#         return 0.5* h * a
+#
+#     @staticmethod
+#     def S_sq(e):
+#         Ploshad.count += 1
+#         return e**2
+#
+#     @staticmethod
+#     def S_pramoyg(a, b):
+#         Ploshad.count += 1
+#         return a*b
+#
+#
+# print(Ploshad.S_Geron(3, 4, 5))
+# print(Ploshad.s_Treyg(6, 7))
+# print(Ploshad.S_sq(7))
+# print(Ploshad.S_pramoyg(2, 6))
+# try_t = Ploshad()
+# print(try_t.S_Geron(1, 2, 3))
+# print(Ploshad.count)
 
-    @staticmethod
-    def s_Treyg(a, h):
-        Ploshad.count += 1
-        return 0.5* h * a
-
-    @staticmethod
-    def S_sq(e):
-        Ploshad.count += 1
-        return e**2
-
-    @staticmethod
-    def S_pramoyg(a, b):
-        Ploshad.count += 1
-        return a*b
 
 
-print(Ploshad.S_Geron(3, 4, 5))
-print(Ploshad.s_Treyg(6, 7))
-print(Ploshad.S_sq(7))
-print(Ploshad.S_pramoyg(2, 6))
-try_t = Ploshad()
-print(try_t.S_Geron(1, 2, 3))
-print(Ploshad.count)
+
+
