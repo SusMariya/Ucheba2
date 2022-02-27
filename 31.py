@@ -160,7 +160,7 @@
 # def write_json(person_dict):
 #     try:
 #         data = json.load(open('person.json'))
-#     except FileExistsError:
+#     except FileNotFoundError:
 #         data = []
 #
 #     data.append(person_dict)
