@@ -99,28 +99,28 @@
 
 
 
-from jinja2 import Template
-
-menu=[
-    {'href': '/index', 'link': 'Главная'},
-    {'href': '/news', 'link': 'Новости'},
-    {'href': '/about', 'link': 'О компании'},
-    {'href': '/shop', 'link': 'Магазин'},
-    {'href': '/contacts', 'link': 'Контакты'},
-]
-
-link="""<ul> 
-<li><a href="/index" class="active">Глвная</a></li>
-{% for m in menu[1:]-%}
-    <li><a href="{{ m['href'] }}">{{ m['link'] }}</a></li>
-{% endfor -%}
-</ul>
-"""
-
-tm=Template(link)
-msg = tm.render(menu=menu)
-
-print(msg)
+# from jinja2 import Template
+#
+# menu=[
+#     {'href': '/index', 'link': 'Главная'},
+#     {'href': '/news', 'link': 'Новости'},
+#     {'href': '/about', 'link': 'О компании'},
+#     {'href': '/shop', 'link': 'Магазин'},
+#     {'href': '/contacts', 'link': 'Контакты'},
+# ]
+#
+# link="""<ul>
+# <li><a href="/index" class="active">Глвная</a></li>
+# {% for m in menu[1:]-%}
+#     <li><a href="{{ m['href'] }}">{{ m['link'] }}</a></li>
+# {% endfor -%}
+# </ul>
+# """
+#
+# tm=Template(link)
+# msg = tm.render(menu=menu)
+#
+# print(msg)
 
 
 # from jinja2 import Template
@@ -204,3 +204,120 @@ print(msg)
 # tm=Template(tpl)
 # msg = tm.render(sc=cars)
 # print(msg)
+
+
+# from jinja2 import Template
+#
+# persons = [
+#     {"name": "Алекcей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.5},
+#     {"name": "Виталий", "year": 33, "weight": 94.0},
+# ]
+# tpl ="""
+# {% for u in users -%}
+# {#{% filter upper %}{{ u.name}}{% endfilter %}#}
+# {% filter string %}{{ u.year}} - {{ u.weight }}{% endfilter %}
+# {% endfor %}
+# """
+#
+# tm=Template(tpl)
+# msg = tm.render(users=persons)
+# print(msg)
+
+# from jinja2 import Template
+#
+# html = """
+# {% macro input(name, value ='', type = 'text', size = '20') -%}
+#     <input type ="{{ type }}" name = "{{ name }}" value = "{{ value }}">
+# {%- endmacro %}
+# <p>{{ input('username', 'Введите имя') }}</p>
+# <p>{{ input('email', 'Введите email') }}</p>
+# <p>{{ input('password') }}</p>
+# """
+#
+# tm=Template(html)
+# msg = tm.render()
+# print(msg)
+
+# from jinja2 import Template
+#
+# html = """
+# {% macro input(name, placeholder, type = 'text') -%}
+#     <input type ="{{ type }}" name = "{{ name }}" placeholder = "{{ placeholder }}">
+# {%- endmacro %}
+# <p>{{ input("firstname", "Имя") }}</p>
+# <p>{{ input("lastname", "Фамилия") }}</p>
+# <p>{{ input("address", "Адрес") }}</p>
+# <p>{{ input("phone", "Телефон", "tel") }}</p>
+# <p>{{ input("email", "Почта", "email") }}</p>
+# """
+#
+# tm=Template(html)
+# msg = tm.render()
+# print(msg)
+
+# from jinja2 import Template
+# #
+# persons = [
+#     {"name": "Алекcей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.5},
+#     {"name": "Виталий", "year": 33, "weight": 94.0},
+# ]
+# tpl ="""
+# {% macro list_users(lst) -%}
+# <ul>
+# {% for u in users -%}
+#     <li>{{ u.name }} {{caller(u) }}</li>
+# {% endfor -%}
+# </ul>
+# {%- endmacro %}
+#
+# {% call(user) list_users(users)%}
+#     <ul>
+#         <li>age: {{ user.year }}</li>
+#         <li>weight: {{ user.weight }}</li>
+#     </ul>
+# {% endcall %}
+# """
+#
+# tm=Template(tpl)
+# msg = tm.render(users=persons)
+# print(msg)
+
+
+from jinja2 import Environment, FileSystemLoader
+
+subs = ['Культура', 'Наука', 'ПОлитика', 'Спорт']
+persons = [
+    {"name": "Алекcей", "year": 18, "weight": 78.5},
+    {"name": "Никита", "year": 28, "weight": 82.5},
+    {"name": "Виталий", "year": 33, "weight": 94.0},
+]
+
+file_loader = FileSystemLoader('templates')
+env = Environment(loader = file_loader)
+tm=env.get_template('about.html')
+msg = tm.render(list_table=subs)
+print(msg)
+
+# tpl ="""
+# {% macro list_users(lst) -%}
+# <ul>
+# {% for u in users -%}
+#     <li>{{ u.name }} {{caller(u) }}</li>
+# {% endfor -%}
+# </ul>
+# {%- endmacro %}
+#
+# {% call(user) list_users(users)%}
+#     <ul>
+#         <li>age: {{ user.year }}</li>
+#         <li>weight: {{ user.weight }}</li>
+#     </ul>
+# {% endcall %}
+# """
+
+# tm=Template(tpl)
+# msg = tm.render(users=persons)
+# print(msg)
+
